@@ -1,0 +1,32 @@
+{
+    "name": "haiau009/kkphim-tocanime",
+    "description": "KKPhim's tocanime theme",
+    "type": "library",
+    "authors": [
+        {
+            "name": "kkphim",
+            "email": "support@kkphim.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "^6|^7|^8",
+        "ckfinder/ckfinder-laravel-package": "v3.5.2.1",
+        "haiau009/kkphim-core": "^1.1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "KKPhim\\ThemeTocAnime\\": "src/",
+            "KKPhim\\ThemeTocAnime\\Database\\Factories\\": "database/factories/",
+            "KKPhim\\ThemeTocAnime\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KKPhim\\ThemeTocAnime\\ThemeTocAnimeServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}
