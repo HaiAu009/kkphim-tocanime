@@ -35,8 +35,9 @@ class ThemeTocAnimeController
                 $movie->where('type', request('filter')['type']);
             })->when(!empty($request['search']), function ($query) {
                 $query->where(function ($query) {
-                    $query->whereRaw("MATCH(name, origin_name) AGAINST(? IN BOOLEAN MODE)", [request('search')]);
-                });
+                    $query->where('name', 'like', '%' . request('search') . '%')
+                        ->orWhere('origin_name', 'like', '%' . request('search')  . '%');
+                })->orderBy('name', 'desc');
             })->when(!empty($request['filter']['sort']), function ($movie) {
                 if (request('filter')['sort'] == 'create') {
                     return $movie->orderBy('created_at', 'desc');
